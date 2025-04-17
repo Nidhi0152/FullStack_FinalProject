@@ -71,10 +71,10 @@ kubectl get service
 
 | Service            | DockerHub Link                                      |
 |--------------------|------------------------------------------------------|
-| Store-Front        | [nidhi0152/bestbuy-frontend:latest](url) |
+| Store-Front        |  |
 | Product-Service    |  |
 | Order-Service      |  |
 | Store-Admin        |  |
 | MakeLine-Service   |  |
-| AI-Service         |[https://hub.docker.com/repository/docker/nidhi0152/bestbuy-aiservice/general](url)  |
+| AI-Service         | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-aiservice/tags |
     
