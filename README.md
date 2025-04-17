@@ -76,5 +76,5 @@ kubectl get service
 | Order-Service      |  |
 | Store-Admin        |  |
 | MakeLine-Service   |  |
-| AI-Service         |  |
+| AI-Service         |[https://hub.docker.com/repository/docker/nidhi0152/bestbuy-aiservice/general](url)  |
     
