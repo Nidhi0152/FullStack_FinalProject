@@ -60,6 +60,7 @@ kubectl get service
 ```
 
 7.**Access the applicaton**
+
    Use 'EXTERNAL-IP' of frontend-bestbuy and storeadmin-bestbuy to access services.
    
 ## Table of Microservice Repositories
