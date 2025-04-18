@@ -72,6 +72,7 @@ kubectl get service
 | storeadmin-bestbuy        | https://github.com/Nidhi0152/storeadmin_bestbuy.git |
 | makelineservice-bestbuy   | https://github.com/Nidhi0152/makelineservice_bestbuy.git |
 | aiservice-bestbuy         | https://github.com/Nidhi0152/aiservice_bestbuy.git |
+| mongodb-bestbuy           | https://github.com/Nidhi0152/mongodb_bestbuy.git |
 
 ## Table of Docker images
 
