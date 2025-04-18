@@ -5,7 +5,7 @@
 The Best Buy application is built using a microservices-based, cloud-native architecture deployed on a Kubernetes cluster.
 
 ###  Architecture Diagram  
-![diagram](https://github.com/user-attachments/assets/65827401-56ff-4888-a843-da006c27791d)
+![diagram](https://github.com/user-attachments/assets/a092e006-4e93-4af5-ab5e-1547ffa2deec)
 
 
 ## Application and Architecture Explanation
@@ -35,48 +35,54 @@ The application is containerized and deployed using Kubernetes for scalability a
    docker tag bestbuy-aiservice:latest nidhi0152/bestbuy-aiservice:latest
    docker push nidhi0152/bestbuy-aiservice:latest
    ```
-3. **Setup Azure Service Bus**
-   Update the relevant service configuration with the Azure Service Bus connection string.
-   ```example:
-   - name: ORDER_QUEUE_URI
-              value: "amqp://bestbuy.servicebus.windows.net" # servicebus connection string
-            - name: ORDER_QUEUE_USERNAME
-              value: "listner"
-            - name: ORDER_QUEUE_PASSWORD
-              value: "fQWy3YXUPlNz8WYcG8//5SolwJRRaNZp6+ASbMCPnw4="
-   ```
-4. **Configure Kubernetes Manifests**  
+3. **Set AZure AKS Cluster**
+    Connect with Azure CLI and use kubectrl
+     ```
+     az login
+     az account set --subscription ee6d1840-d090-4e11-94bc-fb6c42daa912
+     az aks get-credentials --resource-group cst8915 --name finalexam_nidhi --overwrite-existing
+     ```
+ 4.**Check Kubectrl is working**
+  ```
+     kubectl get nodes
+```
+   
+5. **Configure Kubernetes Manifests**  
    Apply Kubernetes YAML configuration files including deployments, configmaps, and secrets:
    ```example:
    kubectl apply -f aps-all-in-one.yaml
 
    ```
-5. **Use Kubectl to get pods and service and Access frontend and store admin with exposed URL**
+6. **Use Kubectl to get pods and service and Access frontend and store admin with exposed URL**
 ```
 kubectl get pods
 kubectl get service
 ```
+
+7.**Access the applicaton**
+   Use 'EXTERNAL-IP' of frontend-bestbuy and storeadmin-bestbuy to access services.
+   
 ## Table of Microservice Repositories
 
 | Service            | Repository Link                                      |
 |--------------------|------------------------------------------------------|
-| Store-Front        | https://github.com/Nidhi0152/frontend_bestbuy.git |
-| Product-Service    | https://github.com/Nidhi0152/productservice_bestbuy.git |
-| Order-Service      | https://github.com/Nidhi0152/orderservice_bestbuy.git |
-| Store-Admin        | https://github.com/Nidhi0152/storeadmin_bestbuy.git |
-| MakeLine-Service   | https://github.com/Nidhi0152/makelineservice_bestbuy.git |
-| AI-Service         | https://github.com/Nidhi0152/aiservice_bestbuy.git |
+| frontend-bestbuy       | https://github.com/Nidhi0152/frontend_bestbuy.git |
+| productservice-bestbuy    | https://github.com/Nidhi0152/productservice_bestbuy.git |
+| orderservice-bestbuy      | https://github.com/Nidhi0152/orderservice_bestbuy.git |
+| storeadmin-bestbuy        | https://github.com/Nidhi0152/storeadmin_bestbuy.git |
+| makelineservice-bestbuy   | https://github.com/Nidhi0152/makelineservice_bestbuy.git |
+| aiservice-bestbuy         | https://github.com/Nidhi0152/aiservice_bestbuy.git |
 
 ## Table of Docker images
 
 | Service            | DockerHub Link                                      |
 |--------------------|------------------------------------------------------|
-| Store-Front        | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-frontend |
-| Product-Service    | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-productservice/tags |
-| Order-Service      | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-orderservice/tags |
-| Store-Admin        | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-storeadmin/tags  |
-| MakeLine-Service   | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-makelineservice/tags |
-| AI-Service         | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-aiservice/tags |
+| frontend-bestbuy        | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-frontend/tags |
+| productservice-bestbuy    | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-productservice/tags |
+| orderservice-bestbuy       | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-orderservice/tags |
+| storeadmin-bestbuy        | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-storeadmin/tags  |
+| makelineservice-bestbuy   | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-makelineservice/tags |
+| aiservice-bestbuy         | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-aiservice/tags |
     
 ## Deployment file
  You can find files under Deployment File folder:
@@ -86,6 +92,8 @@ kubectl get service
 | aps-all-in-one.yaml   | 
 | config-maps.yaml      | 
 | secrets.yaml     |
+
+I have made one deployment file to deploy all services : aps-all-in-one.yml
 
 ## Issue encontared
 1.  **Deplying AI Service**
@@ -113,7 +121,7 @@ data:
               value: "dall-e-3"
    ```
 2. **Azure Service bus**
- - It was taking a bit long to reflect the chnages after checking out from cart and i have mentioned that in video as well. Moreover in video you can see some order spkies around 1:04am as I already tried it before recording video.
+ - It was taking a bit long to reflect the chnages after checking out from cart and I have mentioned that in video as well. Moreover in video you can see some order spkies around 1:04am as I already tried it before recording video.
 
 ## Demo Video
 Link to Youtube : https://www.youtube.com/watch?v=pe4-DR737W8
