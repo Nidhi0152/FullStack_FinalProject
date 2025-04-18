@@ -79,7 +79,41 @@ kubectl get service
 | AI-Service         | https://hub.docker.com/repository/docker/nidhi0152/bestbuy-aiservice/tags |
     
 ## Deployment file
- You can find file under Deployment folder:
+ You can find files under Deployment File folder:
+ | Ymal Files            |
+|--------------------|
+| admin-tasks.yaml       |
+| aps-all-in-one.yaml   | 
+| config-maps.yaml      | 
+| secrets.yaml     |
+
+## Issue encontared
+1.  **Deplying AI Service**
+   - While deploying open AI error encoured : Insuffiencient Quota
+   - How ever when I used it previously for that same project I was able to deploy but at that time those services were not working and I thought to give a next try and deleted. Unfortunaly when I tried to create open ai again insufficient quota error  was coming.
+   -  I asked for a help to friend and some how I was able to retrive my openai project made previously; and my gpt4 service was deployed and for dall-e-3 it was giving error as insufficient quota. To run these ai service I have taken below steps :
+
+###  `secrets.yml`: Added Encrypted API Key
+
+```yaml
+data:
+  OPENAI_API_KEY: "Qzd3dFdEazd4anJSTVdwdUJyNGkxeVc0a0dnbXhhdHJjTXpZMkYxVWZkUUt2cGdrbkhWV0pRUUo5OUJEQUNIWUh2NlhKM3czQUFBQUFDT0dJZmdr"
+```
+  
+### aps-all-in-one.yml: Gave endpoints of AI services and entered the service names
+
+  ```yaml
+- name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
+              value: "gpt-4"
+            - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
+              value: "https://desa0-m9ktnwfl-eastus2.openai.azure.com/"
+            - name: AZURE_OPENAI_DALLE_ENDPOINT
+              value: "https://desa0-m9ktnwfl-eastus2.openai.azure.com/"
+            - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
+              value: "dall-e-3"
+   ```
+2. **Azure Service bus**
+ - It was taking a bit long to reflect the chnages after checking out from cart and i have mentioned that in video as well. Moreover in video you can see some order spkies around 1:04am as I already tried it before recording video.
 
 ## Demo Video
 Link to Youtube : https://www.youtube.com/watch?v=pe4-DR737W8
