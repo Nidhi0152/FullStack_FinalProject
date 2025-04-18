@@ -95,7 +95,7 @@ kubectl get service
 
 I have made one deployment file to deploy all services : aps-all-in-one.yml
 
-## Issue encontared
+## Issue Encounterd
 1.  **Deplying AI Service**
    - While deploying open AI error encoured : Insuffiencient Quota
    - How ever when I used it previously for that same project I was able to deploy but at that time those services were not working and I thought to give a next try and deleted. Unfortunaly when I tried to create open ai again insufficient quota error  was coming.
